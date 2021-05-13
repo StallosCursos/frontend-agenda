@@ -1,0 +1,28 @@
+<div class="form-central">
+  <form style="border:1px solid #ccc">
+    <div class="container">
+      <h1>Nova Conta</h1>
+      <hr>
+        
+      <label for="email"><b>Nome</b></label>
+      <input type="text" [(ngModel)]="NovaConta.nome" placeholder="Digite seu email" name="email" required>
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" [(ngModel)]="NovaConta.email" placeholder="Digite seu email" name="email" required>
+
+      <label for="email"><b>Nome Usuario</b></label>
+      <input type="text" [(ngModel)]="NovaConta.nomeUsuario" placeholder="Digite seu email" name="email" required>
+  
+      <label for="psw"><b>Senha</b></label>
+      <input type="password" [(ngModel)]="NovaConta.senha" placeholder="Digite a senha" name="psw" required>
+  
+      <label for="psw-repeat"><b>Confirmar Password</b></label>
+      <input type="password" [(ngModel)]="NovaConta.senhaConfirmacao" placeholder="Confirme a senha" name="psw-repeat" required>
+      
+      <div class="clearfix">
+        <button type="button" class="cancelbtn">Cancelar</button>
+        <button type="submit" (click)="CriarNovaConta()" class="signupbtn">Nova Conta</button>
+      </div>
+    </div>
+  </form>
+</div>
