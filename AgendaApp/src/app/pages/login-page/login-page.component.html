@@ -6,12 +6,12 @@
   
     <div class="container">
       <label for="uname"><b>Nome Usuario</b></label>
-      <input type="text" placeholder="Digite o nome do usuario" name="uname">
+      <input type="text" [(ngModel)]="Login.nomeUsuario" placeholder="Digite o nome do usuario" name="uname">
   
       <label for="psw"><b>Senha</b></label>
-      <input type="password" placeholder="Digite a senha" name="psw">
+      <input type="password" [(ngModel)]="Login.senha" placeholder="Digite a senha" name="psw">
           
-      <button type="submit">Login</button>      
+      <button type="submit" (click)="ExecuteLogin()">Login</button>      
     </div>
   
     <div class="container" style="background-color:#f1f1f1">
@@ -19,3 +19,4 @@
     </div>
   </form>
 </div>  
+<app-toast></app-toast>

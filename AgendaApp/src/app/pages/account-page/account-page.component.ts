@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastService } from 'src/app/components/toast/toast.service';
 import { Conta } from 'src/app/models/conta.model';
 import { ContaService } from 'src/app/services/ContaService/conta.service';
 
@@ -12,7 +14,11 @@ export class AccountPageComponent implements OnInit {
 
   public NovaConta: Conta;
 
-  constructor(private ContaService: ContaService) { 
+  constructor(
+    private ContaService: ContaService,
+    private ToastService: ToastService,
+    private Router: Router
+  ) { 
     this.NovaConta = new Conta();
   }
 
@@ -21,8 +27,10 @@ export class AccountPageComponent implements OnInit {
 
   CriarNovaConta() {
     this.ContaService.NovaConta(this.NovaConta).subscribe(sucess => {
-       console.log(sucess);
+       this.ToastService.SendToast("Conta criada com suceso voce será redirecionado em segundos. :)");
+       setTimeout(() => this.Router.navigate(['/Login']), 2500);
     }, error => {
+       this.ToastService.SendToast('Ops. Ocorreu um erro ao criar uma nova conta. :(');
        console.log(error);
     })
   }

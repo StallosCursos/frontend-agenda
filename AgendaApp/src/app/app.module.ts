@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { AccountPageComponent } from './pages/account-page/account-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    AccountPageComponent
+    AccountPageComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
