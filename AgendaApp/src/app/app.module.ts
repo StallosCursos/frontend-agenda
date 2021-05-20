@@ -6,15 +6,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AccountPageComponent } from './pages/account-page/account-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastComponent } from './components/toast/toast.component';
+import { BearerInterceptor } from './interceptors/BearerInterceptor/bearer.interceptor';
+import { NotAutorizedInterceptor } from './interceptors/NotAutorizedInterceptor/not-autorized.interceptor';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { SchedulePageComponent } from './pages/schedule-page/schedule-page.component';
+import { CategoryPageComponent } from './pages/category-page/category-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     AccountPageComponent,
-    ToastComponent
+    ToastComponent,
+    HomePageComponent,
+    SchedulePageComponent,
+    CategoryPageComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +30,10 @@ import { ToastComponent } from './components/toast/toast.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BearerInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: NotAutorizedInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

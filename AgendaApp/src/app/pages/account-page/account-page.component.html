@@ -20,8 +20,8 @@
       <input type="password" [(ngModel)]="NovaConta.senhaConfirmacao" placeholder="Confirme a senha" name="psw-repeat" required>
       
       <div class="clearfix">
-        <button type="button" class="cancelbtn">Cancelar</button>
-        <button type="submit" (click)="CriarNovaConta()" class="signupbtn">Nova Conta</button>
+        <button type="button" class="cancelbtn" (click)="Cancel()">Cancelar</button>
+        <button type="submit" (click)="CreateNewAccount()" class="signupbtn">Nova Conta</button>
       </div>
     </div>
   </form>

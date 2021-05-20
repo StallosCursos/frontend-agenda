@@ -31,7 +31,7 @@ export class LoginPageComponent implements OnInit {
 
       this.ToastService.SendToast("Login efetuado com sucesso o usuario será redirecionado :)");
 
-      setTimeout(() => this.Router.navigate(['/']), 2500);
+      setTimeout(() => this.Router.navigate(['/Home']), 2500);
 
     }, error => {
       this.ToastService.SendToast("Login e senha não correspondem :(");

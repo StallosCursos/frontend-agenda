@@ -25,7 +25,7 @@ export class AccountPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  CriarNovaConta() {
+  CreateNewAccount() {
     this.ContaService.NovaConta(this.NovaConta).subscribe(sucess => {
        this.ToastService.SendToast("Conta criada com suceso voce será redirecionado em segundos. :)");
        setTimeout(() => this.Router.navigate(['/Login']), 2500);
@@ -33,5 +33,9 @@ export class AccountPageComponent implements OnInit {
        this.ToastService.SendToast('Ops. Ocorreu um erro ao criar uma nova conta. :(');
        console.log(error);
     })
+  }
+
+  Cancel() {
+    this.Router.navigate(['/Login']);
   }
 }
