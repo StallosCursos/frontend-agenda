@@ -1,3 +1,3 @@
 export class ResponseLogin {
-    Token: string;
+   token: string;
 }

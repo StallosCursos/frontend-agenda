@@ -20,7 +20,7 @@ export class BearerInterceptor implements HttpInterceptor {
 
      if (this.TokenInBrowser != undefined || this.TokenInBrowser != null) {
          let requestClone = request.clone({
-            setHeaders: { Authorization: `Bearer ${this.TokenInBrowser.Token}` }
+            setHeaders: { Authorization: `Bearer ${this.TokenInBrowser.token}` }
          })
 
          return next.handle(requestClone);

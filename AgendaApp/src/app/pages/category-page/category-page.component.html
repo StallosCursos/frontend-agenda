@@ -1,1 +1,20 @@
-<p>category-page works!</p>
+<label for="email"><b>Nome Categoria</b></label>
+<input type="text" [(ngModel)]="categoria.nome" placeholder="Digite so nome da sua categoria" name="categoryName" required>
+
+<div class="clearfix" id="buttons">
+    <button type="button" (click)="Limpar()" class="cancelbtn">Limpar</button>
+    <button type="submit" (click)="Salvar()" class="signupbtn">Salvar</button>
+</div>
+<hr>
+<input type="text" id="myInput" [(ngModel)]="termo" (keyup)="BuscarCategoriaPorTermo()" placeholder="Search for names.." title="Type in a name">
+<table id="myTable">
+    <tr class="header">
+      <th style="width:20%;">Id</th>
+      <th style="width:40%;">Nome</th>
+    </tr>
+    <tr *ngFor='let categoria of categorias | async'>
+      <td>{{categoria.id}}</td>
+      <td>{{categoria.nome}}</td>
+    </tr>      
+</table>
+<app-toast></app-toast>

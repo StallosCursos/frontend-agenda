@@ -3,3 +3,12 @@
   .main {
     margin-top: 5%; /* Add a top margin to avoid content overlay */
   }
+
+  .bodyContent {
+    margin-top: 3%;
+  }
+
+  .normal-panel {
+    border: 1px solid silver;
+    width: 100%;
+  }
