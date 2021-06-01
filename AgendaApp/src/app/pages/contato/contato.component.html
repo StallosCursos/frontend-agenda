@@ -1,0 +1,60 @@
+<div class="form-central">
+    <form style="border:1px solid #ccc">
+      <div class="container">
+        <h1>Novo Contato</h1>
+        <hr>
+          
+        <label for="email"><b>Nome</b></label>
+        <input type="text" [(ngModel)]="Contato.nome" placeholder="Digite o nome" name="nome" required>
+  
+        <label for="email"><b>Email</b></label>
+        <input type="text" [(ngModel)]="Contato.email" placeholder="Digite o email" name="email" required>
+
+        <hr>
+
+        <label for="email"><b>Ddd</b></label>
+        <input type="text" [(ngModel)]="NumeroContato.ddd" placeholder="Digite o ddd" name="nome" required>
+        
+        <label for="email"><b>Telefone</b></label>
+        <input type="text" [(ngModel)]="NumeroContato.numero" placeholder="Digite o Telefone" name="nome" required>
+
+        <label for="email"><b>Tipo</b></label>
+        <select id="country" [(ngModel)]="NumeroContato.tipoContato" name="country">
+            <option value="1">Telefone</option>
+            <option value="2">Celular</option>
+            <option value="3">Fax</option>
+        </select>
+
+        <label for="email"><b>Categoria</b></label>
+        <select id="country" [(ngModel)]="NumeroContato.idcategoria" name="country">
+            <option value="{{categoria.id}}" *ngFor='let categoria of categorias | async'>{{categoria.nome}}</option>
+        </select>
+        
+        <button type="button" (click)="AddContato()" class="signupbtn" style="width: 5%;">Add</button>
+        
+        <table id="myTable">
+            <tr class="header">
+              <th style="width:20%;">Ddd</th>
+              <th style="width:30%;">Numero</th>
+              <th style="width:30%;">Tipo</th>
+              <th> </th>
+            </tr>
+            <tr style="width:20%;" *ngFor='let numero of Contato.numeroContato'>
+              <td>{{numero.ddd}}</td>
+              <td>{{numero.numero}}</td>
+              <td>{{TipoContato(numero.tipoContato)}}</td>
+              <td>
+                <button type="button" class="cancelbtn" (click)="Remover(numero)">Remover</button>
+              </td>
+            </tr>      
+        </table>        
+        <hr>
+
+        <div class="clearfix">
+          <button type="button" class="cancelbtn" (click)="Cancel()">Cancelar</button>
+          <button type="submit" (click)="CreateNewContato()" class="signupbtn">Salvar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-toast></app-toast>

@@ -1,1 +1,4 @@
-<p>schedule-page works!</p>
+<button type="submit" (click)="NovoContato()" id="novoContato" class="signupbtn">Novo Contato</button>
+<div style="width:15%" *ngFor='let contato of Contatos | async'>
+    <app-contact-card [Contato]="contato"></app-contact-card>
+</div>

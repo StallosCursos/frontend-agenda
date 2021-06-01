@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,8 @@ import { NotAutorizedInterceptor } from './interceptors/NotAutorizedInterceptor/
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SchedulePageComponent } from './pages/schedule-page/schedule-page.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { ContactCardComponent } from './components/contact-card/contact-card.component';
+import { ContatoComponent } from './pages/contato/contato.component';
 
 @NgModule({
   declarations: [
@@ -23,14 +25,17 @@ import { CategoryPageComponent } from './pages/category-page/category-page.compo
     ToastComponent,
     HomePageComponent,
     SchedulePageComponent,
-    CategoryPageComponent
+    CategoryPageComponent,
+    ContactCardComponent,
+    ContatoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BearerInterceptor, multi: true },

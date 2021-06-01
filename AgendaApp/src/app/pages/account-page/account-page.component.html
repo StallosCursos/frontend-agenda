@@ -1,23 +1,30 @@
 <div class="form-central">
-  <form style="border:1px solid #ccc">
+  <form [formGroup]="Form" style="border:1px solid #ccc">
     <div class="container">
       <h1>Nova Conta</h1>
       <hr>
         
       <label for="email"><b>Nome</b></label>
-      <input type="text" [(ngModel)]="NovaConta.nome" placeholder="Digite seu email" name="email" required>
+      <input type="text" [(ngModel)]="NovaConta.nome" placeholder="Digite seu nome" name="email" formControlName="nome">
+      <span *ngIf="IsRequest && Form.hasError('required', ['nome'])">Campo Obrigatório</span><br>
 
       <label for="email"><b>Email</b></label>
-      <input type="text" [(ngModel)]="NovaConta.email" placeholder="Digite seu email" name="email" required>
+      <input type="text" [(ngModel)]="NovaConta.email" placeholder="Digite seu email" name="email" formControlName="email">
+      <span *ngIf="IsRequest && Form.hasError('required', ['email'])">Campo Obrigatório</span><br>
+      <span *ngIf="IsRequest && Form.hasError('email', ['email'])">Email invalido</span><br>
 
       <label for="email"><b>Nome Usuario</b></label>
-      <input type="text" [(ngModel)]="NovaConta.nomeUsuario" placeholder="Digite seu email" name="email" required>
+      <input type="text" [(ngModel)]="NovaConta.nomeUsuario" placeholder="Digite seu nome de usuario" name="email" formControlName="nomeUsuario">
+      <span *ngIf="IsRequest && Form.hasError('required', ['nomeUsuario'])">Campo Obrigatório</span><br>
   
       <label for="psw"><b>Senha</b></label>
-      <input type="password" [(ngModel)]="NovaConta.senha" placeholder="Digite a senha" name="psw" required>
+      <input type="password" [(ngModel)]="NovaConta.senha" placeholder="Digite a senha" name="psw" formControlName="senha">
+      <span *ngIf="IsRequest && Form.hasError('required', ['senha'])">Campo Obrigatório</span><br>
   
       <label for="psw-repeat"><b>Confirmar Password</b></label>
-      <input type="password" [(ngModel)]="NovaConta.senhaConfirmacao" placeholder="Confirme a senha" name="psw-repeat" required>
+      <input type="password" [(ngModel)]="NovaConta.senhaConfirmacao" placeholder="Confirme a senha" name="psw-repeat" formControlName="senhaConfirmacao">
+      <span *ngIf="IsRequest && Form.hasError('required', ['senhaConfirmacao'])">Campo Obrigatório</span><br>
+      <span *ngIf="IsRequest && Form.hasError('mustMatch', ['senhaConfirmacao'])">Senhas Não Conferem</span><br>
       
       <div class="clearfix">
         <button type="button" class="cancelbtn" (click)="Cancel()">Cancelar</button>

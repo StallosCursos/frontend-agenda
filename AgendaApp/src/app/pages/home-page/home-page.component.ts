@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContatoService } from 'src/app/services/ContatoService/contato.service';
 
 @Component({
   selector: 'app-home-page',

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccountPageComponent } from './pages/account-page/account-page.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { ContatoComponent } from './pages/contato/contato.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SchedulePageComponent } from './pages/schedule-page/schedule-page.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: "", component: HomePageComponent, children: [
      { path: "Home", component: HomePageComponent },
      { path: "Agenda", component: SchedulePageComponent },
-     { path: "Categoria", component: CategoryPageComponent }
+     { path: "Categoria", component: CategoryPageComponent },
+     { path: "Contato", component: ContatoComponent }
   ]}
 ];
 
